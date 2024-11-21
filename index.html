@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foro: IA en la Educación</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <img src="uploadedimage.png" alt="Logo del foro" class="logo">
+    <h1>Bon Ice Academy</h1>
+  </header>
+  
+  <main class="main-content">
+    <section class="forum-section">
+      
+<div class="tabs-container">
+  <h2>Ventajas y Desventajas del uso de la IA en la Educación</h2>
+
+ 
+  <div class="tabs">
+      <div class="tab" onclick="showTab('ventajas')">Ventajas</div>
+      <div class="tab" onclick="showTab('desventajas')">Desventajas</div>
+  </div>
+
+ 
+  <div id="ventajas" class="tab-content">
+      <h3>Ventajas de la IA en la educación</h3>
+      <ul>
+          <li><strong>Personalización del aprendizaje:</strong> La IA adapta el contenido a las necesidades individuales de cada estudiante, optimizando el proceso educativo.</li>
+          <li><strong>Acceso a recursos las 24 horas:</strong> Los estudiantes pueden acceder a materiales educativos en cualquier momento, fomentando el aprendizaje autónomo.</li>
+          <li><strong>Automatización de tareas administrativas:</strong> Permite a los educadores centrarse en la enseñanza, mientras la IA se encarga de tareas como calificaciones y reportes.</li>
+          <li><strong>Desarrollo de habilidades digitales:</strong> El uso de IA en la educación prepara a los estudiantes para un futuro donde las habilidades tecnológicas son esenciales.</li>
+      </ul>
+  </div>
+
+  
+  <div id="desventajas" class="tab-content">
+      <h3>Desventajas de la IA en la educación</h3>
+      <ul>
+          <li><strong>Desigualdad de acceso:</strong> No todos los estudiantes tienen acceso a tecnologías avanzadas, lo que puede generar brechas educativas.</li>
+          <li><strong>Dependencia de la tecnología:</strong> Un uso excesivo de la IA puede llevar a una dependencia de la tecnología, lo que reduce la interacción humana y el desarrollo de habilidades interpersonales.</li>
+          <li><strong>Desafíos éticos:</strong> El uso de la IA plantea preguntas sobre la privacidad de los datos y la imparcialidad de los algoritmos educativos.</li>
+          <li><strong>Falta de comprensión profunda:</strong> La IA no reemplaza la comprensión humana, por lo que puede fallar al abordar el contexto emocional y personal de cada estudiante.</li>
+      </ul>
+  </div>
+</div>
+
+
+<style>
+  .tabs-container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+  }
+
+  h2 {
+      text-align: center;
+      color: #333;
+  }
+
+  .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+  }
+
+  .tab {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 25px;
+      margin: 0 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+  }
+
+  .tab:hover {
+      background-color: #2980b9;
+  }
+
+  .tab-content {
+      display: none;
+      background-color: #ecf0f1;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .tab-content ul {
+      list-style-type: none;
+      padding-left: 20px;
+  }
+
+  .tab-content li {
+      margin: 10px 0;
+  }
+
+  .active {
+      display: block;
+  }
+</style>
+
+
+<script>
+  function showTab(tabName) {
+      
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => {
+          content.classList.remove('active');
+      });
+
+      
+      const activeTab = document.getElementById(tabName);
+      activeTab.classList.add('active');
+  }
+  showTab('ventajas');
+</script>
+
+      <h2>Temas Destacados</h2>
+      <div class="topics">
+        <div class="topic">
+          <h3>¿Cómo cambia la IA la forma de enseñar?</h3>
+          <p>Debate sobre herramientas como ChatGPT en el aula.</p>
+        </div>
+        <div class="topic">
+          <h3>Ética en el uso de IA</h3>
+          <p>¿Dónde están los límites en el uso de inteligencia artificial en la educación?</p>
+        </div>
+        <div class="topic">
+          <h3>Experiencias con IA</h3>
+          <p>Comparte tus experiencias usando aplicaciones educativas basadas en IA.</p>
+        </div>
+        <div class="topic">
+            <h3>Encuesta </h3>
+            <p>Comparte tu opinión frente a tu experiencia con el impacto de la inteligencia artificial en la educación: </p>
+           <p>"https://docs.google.com/forms/d/e/1FAIpQLSeCpAlcyLtV65D-RG3ekFPOSCqAUfQeL9wcpUavuuPuVlODKA/viewform?usp=sf_link"</p>
+          </div>
+      </div>
+      <div class="topic">
+        <h3>5 pasos para un buen uso de la IA </h3>
+        <p><h4>Comprender su Funcionamiento</h4></p>
+        <p>Antes de utilizar la IA, es importante entender cómo funciona. Investigar sobre los tipos de IA disponibles, sus aplicaciones y sus limitaciones ayudará a tomar decisiones informadas y a utilizarla de manera más eficiente.</p>
+        <p><h4>Definir Objetivos Claros</h4></p>
+        <p>Establecer metas específicas para el uso de la IA es crucial. Ya sea para mejorar la productividad, personalizar el aprendizaje o automatizar tareas, tener una visión clara permitirá que la IA se utilice para abordar necesidades específicas.</p>
+        <p><h4>Elegir Herramientas Adecuadas</h4></p>
+        <p>Existen muchas herramientas basadas en IA, por lo que elegir las adecuadas para tus objetivos es esencial. Evalúa las opciones disponibles, revisa sus características, y selecciona las que mejor se adapten a tus necesidades y presupuesto.</p>
+        <p><h4>Integrar la IA de Forma Responsable</h4></p>
+        <p>Asegúrate de utilizar la IA de manera ética y responsable. Esto incluye ser transparente con los usuarios sobre cómo se usan sus datos, evitar sesgos y respetar la privacidad de las personas.</p>
+        <p><h4>Monitorear y Ajustar el Uso</h4></p>
+        <p>Una vez implementada la IA, es importante monitorear su rendimiento y hacer ajustes según sea necesario. Recopilar retroalimentación y analizar los resultados permitirá optimizar la integración de la IA y mejorar su efectividad a largo plazo.</p>
+    </div>
+  </div>
+    </section>
+    <form class="post-form">
+      <h2>Crear un nuevo tema</h2>
+      <textarea placeholder="Escribe aquí tu mensaje..." rows="5"></textarea>
+      <button type="submit">Publicar</button>
+
+      <p><h1>Habla con ICE bot(desarrollo)</h1></p>
+      <div id="ai-assistant" style="text-align: center; margin: 40px auto; max-width: 600px;">
+        <div id="ai-container" style="position: relative; display: inline-block; width: 200px; height: 200px; margin-bottom: 20px;">
+          <div id="ai-face" 
+               style="width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(45deg, #FFD700, #FF5733); 
+                      display: flex; align-items: center; justify-content: center; font-size: 60px; color: #fff; 
+                      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, background 0.3s ease;">
+            😊
+          </div>
+          <div id="ai-glow" 
+               style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 223, 0, 0.6), transparent); 
+                      filter: blur(20px); pointer-events: none; opacity: 0.7;"></div>
+        </div>
+        <input id="user-input" 
+               type="text" 
+               placeholder="Escribe algo aquí..." 
+               style="padding: 12px; width: 80%; max-width: 400px; border: 2px solid #FFD700; border-radius: 25px; font-size: 16px; text-align: center; outline: none; transition: border-color 0.3s ease;">
+        <button onclick="respondAI()" 
+                style="padding: 12px 20px; margin-top: 15px; font-size: 16px; border: none; border-radius: 25px; background: #FF5733; color: #fff; cursor: pointer; 
+                       transition: background 0.3s ease; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+          Preguntar
+        </button>
+        <p id="ai-response" style="font-size: 18px; color: #333; margin-top: 20px; font-weight: bold;"></p>
+      </div>
+      
+      <script>
+        function respondAI() {
+          const userInput = document.getElementById('user-input').value.toLowerCase();
+          const responseElement = document.getElementById('ai-response');
+          const aiFace = document.getElementById('ai-face');
+          const aiContainer = document.getElementById('ai-container');
+      
+          let response = "";
+          let mood = "😊";
+          let color = "linear-gradient(45deg, #FFD700, #FF5733)";
+      
+          if (userInput.includes("hola")) {
+            response = "¡Hola! ¿Qué tal tu día?";
+            mood = "😄";
+            color = "linear-gradient(45deg, #4CAF50, #8BC34A)";
+          } else if (userInput.includes("cómo estas")) {
+            response = "¡Estoy lleno de energía! ¿Y tú?";
+            mood = "😁";
+            color = "linear-gradient(45deg, #2196F3, #21CBF3)";
+          } else if (userInput.includes("chiste")) {
+            response = "¿Por qué el libro estaba triste? ¡Porque estaba lleno de problemas! 📚😂";
+            mood = "😂";
+            color = "linear-gradient(45deg, #FF5733, #FFC300)";
+          } else if (userInput.includes("adios")) {
+            response = "¡Hasta pronto! Que tengas un día maravilloso. 🌟";
+            mood = "👋";
+            color = "linear-gradient(45deg, #9C27B0, #E040FB)";
+          } else {
+            response = "No entiendo bien eso... pero estoy aquí para aprender. 🤔";
+            mood = "🤔";
+            color = "linear-gradient(45deg, #FF9800, #FFC107)";
+          }
+      
+          
+          aiFace.textContent = mood;
+          aiFace.style.background = color;
+          aiContainer.style.transform = "scale(1.1)";
+          
+          
+          responseElement.textContent = response;
+      
+          
+          setTimeout(() => {
+            aiContainer.style.transform = "scale(1)";
+          }, 300);
+        }
+      </script>
+      
+    </form>
+  </main>
+<footer class="footer">
+    <p>© 2024 Bon Ice Academy. Todos los derechos reservados.</p>
+  </footer>
+  <script src="script.js"></script>
+
+
+
+  
+</body>
+</html>
