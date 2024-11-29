@@ -1,249 +1,317 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foro: IA en la Educación</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="header">
-    <img src="uploadedimage.png" alt="Logo del foro" class="logo">
-    <h1>Bon Ice Academy</h1>
-  </header>
-  
-  <main class="main-content">
-    <section class="forum-section">
-      
-<div class="tabs-container">
-  <h2>Ventajas y Desventajas del uso de la IA en la Educación</h2>
-
- 
-  <div class="tabs">
-      <div class="tab" onclick="showTab('ventajas')">Ventajas</div>
-      <div class="tab" onclick="showTab('desventajas')">Desventajas</div>
-  </div>
-
- 
-  <div id="ventajas" class="tab-content">
-      <h3>Ventajas de la IA en la educación</h3>
-      <ul>
-          <li><strong>Personalización del aprendizaje:</strong> La IA adapta el contenido a las necesidades individuales de cada estudiante, optimizando el proceso educativo.</li>
-          <li><strong>Acceso a recursos las 24 horas:</strong> Los estudiantes pueden acceder a materiales educativos en cualquier momento, fomentando el aprendizaje autónomo.</li>
-          <li><strong>Automatización de tareas administrativas:</strong> Permite a los educadores centrarse en la enseñanza, mientras la IA se encarga de tareas como calificaciones y reportes.</li>
-          <li><strong>Desarrollo de habilidades digitales:</strong> El uso de IA en la educación prepara a los estudiantes para un futuro donde las habilidades tecnológicas son esenciales.</li>
-      </ul>
-  </div>
-
-  
-  <div id="desventajas" class="tab-content">
-      <h3>Desventajas de la IA en la educación</h3>
-      <ul>
-          <li><strong>Desigualdad de acceso:</strong> No todos los estudiantes tienen acceso a tecnologías avanzadas, lo que puede generar brechas educativas.</li>
-          <li><strong>Dependencia de la tecnología:</strong> Un uso excesivo de la IA puede llevar a una dependencia de la tecnología, lo que reduce la interacción humana y el desarrollo de habilidades interpersonales.</li>
-          <li><strong>Desafíos éticos:</strong> El uso de la IA plantea preguntas sobre la privacidad de los datos y la imparcialidad de los algoritmos educativos.</li>
-          <li><strong>Falta de comprensión profunda:</strong> La IA no reemplaza la comprensión humana, por lo que puede fallar al abordar el contexto emocional y personal de cada estudiante.</li>
-      </ul>
-  </div>
-</div>
-
-
-<style>
-  .tabs-container {
-      width: 80%;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-  }
-
-  h2 {
-      text-align: center;
-      color: #333;
-  }
-
-  .tabs {
+  <title>ICE Bot - Inteligencia Artificial</title>
+  <link rel="icon" href="https://www.ucentral.edu.co/sites/default/files/2021-09/ucentral-logo.png" type="image/png">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #ddd;
       display: flex;
       justify-content: center;
-      margin-bottom: 20px;
-  }
+      align-items: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      text-align: center;
+      padding: 0 20px;
+    }
 
-  .tab {
-      background-color: #3498db;
-      color: white;
-      padding: 12px 25px;
-      margin: 0 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+    h1 {
+      font-size: 55px;
+      color: #4CAF50;
+      font-family: 'Arial', sans-serif;
       font-weight: bold;
-  }
+      margin-top: 30px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      background: linear-gradient(45deg, #4CAF50, #FF9800);
+      -webkit-background-clip: text;
+      color: transparent;
+      padding-bottom: 10px;
+      border-bottom: 4px solid #4CAF50;
+    }
 
-  .tab:hover {
-      background-color: #2980b9;
-  }
+    .chat-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 30px;
+    }
 
-  .tab-content {
-      display: none;
-      background-color: #ecf0f1;
+    #chatbox {
+      background-color: #1e1e1e;
+      border-radius: 15px;
       padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+      width: 350px;
+      height: 500px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      overflow-y: auto;
+      position: relative;
+      flex-shrink: 0;
+    }
 
-  .tab-content ul {
-      list-style-type: none;
-      padding-left: 20px;
-  }
-
-  .tab-content li {
+    .message {
       margin: 10px 0;
-  }
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
 
-  .active {
+    .bot-message {
+      background-color: #4CAF50;
+      color: white;
+      max-width: 80%;
+      align-self: flex-start;
+    }
+
+    .user-message {
+      background-color: #007BFF;
+      color: white;
+      max-width: 80%;
+      text-align: right;
+      align-self: flex-end;
+    }
+
+    #user-input {
+      display: none;
+    }
+
+    #send-btn {
+      display: none;
+    }
+
+    #menu {
+      background-color: #333;
+      padding: 15px;
+      border-radius: 10px;
+      width: 250px;
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      color: #ddd;
+      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      flex-shrink: 0;
+      margin-top: 20px;
+    }
+
+    #menu .menu-item {
+      cursor: pointer;
+      padding: 8px;
+      text-align: left;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    #menu .menu-item:hover {
+      background-color: #4CAF50;
+    }
+
+    #toggle-menu {
+      padding: 12px 20px;
+      background-color: #333;
+      color: #ddd;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #toggle-menu:hover {
+      background-color: #4CAF50;
+    }
+
+    #emoji {
+      font-size: 45px;
+      margin-right: 10px;
+      transition: background-color 0.5s ease;
+    }
+
+    footer {
+      color: #888;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 30px;
+      font-style: italic;
+    }
+
+    footer a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .logo-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    .logo-container img {
+      width: 80px;
+      height: auto;
+    }
+
+    .survey-link {
       display: block;
-  }
-</style>
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 14px;
+    }
 
+    .survey-link:hover {
+      background-color: #45a049;
+    }
 
-<script>
-  function showTab(tabName) {
-      
-      const contents = document.querySelectorAll('.tab-content');
-      contents.forEach(content => {
-          content.classList.remove('active');
-      });
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
 
-      
-      const activeTab = document.getElementById(tabName);
-      activeTab.classList.add('active');
-  }
-  showTab('ventajas');
-</script>
+      .chat-container {
+        flex-direction: column;
+        align-items: center;
+      }
 
-      <h2>Temas Destacados</h2>
-      <div class="topics">
-        <div class="topic">
-          <h3>¿Cómo cambia la IA la forma de enseñar?</h3>
-          <p>Debate sobre herramientas como ChatGPT en el aula.</p>
+      #chatbox {
+        width: 90%;
+        max-width: 500px;
+      }
+
+      #menu {
+        width: 90%;
+        margin-top: 20px;
+      }
+
+      #toggle-menu {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-container">
+    <a href="https://www.ucentral.edu.co/" target="_blank" style="background-color: white; padding: 5px; border-radius: 5px;">
+      <img src="https://www.ucentral.edu.co/sites/default/files/2021-09/ucentral-logo.png" alt="Logo Universidad Central de Colombia">
+    </a>
+    <a href="https://forms.gle/giJP82u2a5FyEdr27" class="survey-link" target="_blank">Encuesta sobre ICE Bot</a>
+  </div>
+
+  <h1>ICE Bot</h1>
+
+  <div class="chat-container">
+    <div id="chatbox">
+      <div id="chat-container">
+        <div class="message bot-message">
+          <span id="emoji" class="neutral">😊</span>
+          ¡Hola! Soy ICE Bot, creado por El Zurdo. Estoy aprendiendo poco a poco. ¿En qué puedo ayudarte hoy?
         </div>
-        <div class="topic">
-          <h3>Ética en el uso de IA</h3>
-          <p>¿Dónde están los límites en el uso de inteligencia artificial en la educación?</p>
-        </div>
-        <div class="topic">
-          <h3>Experiencias con IA</h3>
-          <p>Comparte tus experiencias usando aplicaciones educativas basadas en IA.</p>
-        </div>
-        <div class="topic">
-            <h3>Encuesta </h3>
-            <p>Comparte tu opinión frente a tu experiencia con el impacto de la inteligencia artificial en la educación: </p>
-           <p>"https://docs.google.com/forms/d/e/1FAIpQLSeCpAlcyLtV65D-RG3ekFPOSCqAUfQeL9wcpUavuuPuVlODKA/viewform?usp=sf_link"</p>
-          </div>
       </div>
-      <div class="topic">
-        <h3>5 pasos para un buen uso de la IA </h3>
-        <p><h4>Comprender su Funcionamiento</h4></p>
-        <p>Antes de utilizar la IA, es importante entender cómo funciona. Investigar sobre los tipos de IA disponibles, sus aplicaciones y sus limitaciones ayudará a tomar decisiones informadas y a utilizarla de manera más eficiente.</p>
-        <p><h4>Definir Objetivos Claros</h4></p>
-        <p>Establecer metas específicas para el uso de la IA es crucial. Ya sea para mejorar la productividad, personalizar el aprendizaje o automatizar tareas, tener una visión clara permitirá que la IA se utilice para abordar necesidades específicas.</p>
-        <p><h4>Elegir Herramientas Adecuadas</h4></p>
-        <p>Existen muchas herramientas basadas en IA, por lo que elegir las adecuadas para tus objetivos es esencial. Evalúa las opciones disponibles, revisa sus características, y selecciona las que mejor se adapten a tus necesidades y presupuesto.</p>
-        <p><h4>Integrar la IA de Forma Responsable</h4></p>
-        <p>Asegúrate de utilizar la IA de manera ética y responsable. Esto incluye ser transparente con los usuarios sobre cómo se usan sus datos, evitar sesgos y respetar la privacidad de las personas.</p>
-        <p><h4>Monitorear y Ajustar el Uso</h4></p>
-        <p>Una vez implementada la IA, es importante monitorear su rendimiento y hacer ajustes según sea necesario. Recopilar retroalimentación y analizar los resultados permitirá optimizar la integración de la IA y mejorar su efectividad a largo plazo.</p>
+    </div>
+
+    <button id="toggle-menu" onclick="toggleMenu()">Lo que puedo hacer</button>
+
+    <div id="menu">
+      <div class="menu-item" onclick="sendMessageToBot('historia')">Historia de la IA</div>
+      <div class="menu-item" onclick="sendMessageToBot('ejemplos')">Ejemplos de la IA</div>
+      <div class="menu-item" onclick="sendMessageToBot('ventajas')">Ventajas de la IA</div>
+      <div class="menu-item" onclick="sendMessageToBot('desventajas')">Desventajas de la IA</div>
+      <div class="menu-item" onclick="sendMessageToBot('como funciona')">¿Cómo funciona la IA?</div>
+      <div class="menu-item" onclick="sendMessageToBot('quien me programo')">¿Quién te programó?</div>
+      <div class="menu-item" onclick="sendMessageToBot('molesto')">Molesto</div>
+      <div class="menu-item" onclick="sendMessageToBot('medicina')">IA en la Medicina</div>
+      <div class="menu-item" onclick="sendMessageToBot('educacion')">IA en la Educación</div>
+      <div class="menu-item" onclick="sendMessageToBot('futuro')">Futuro de la IA</div>
+      <div class="menu-item" onclick="sendMessageToBot('arte')">IA y el Arte</div>
+      <div class="menu-item" onclick="sendMessageToBot('robotica')">IA en Robótica</div>
+      <div class="menu-item" onclick="sendMessageToBot('redes')">IA en Redes Sociales</div>
+      <div class="menu-item" onclick="sendMessageToBot('saludar')">Saludar</div>
+      <div class="menu-item" onclick="sendMessageToBot('como estas')">¿Cómo estás?</div>
+      <div class="menu-item" onclick="sendMessageToBot('trabajo')">¿Qué haces?</div>
+      <div class="menu-item" onclick="sendMessageToBot('miedo')">¿Tienes miedo?</div>
+      <div class="menu-item" onclick="sendMessageToBot('celos')">¿Tienes celos?</div>
+      <div class="menu-item" onclick="sendMessageToBot('triste')">¿Estás triste?</div>
+      <div class="menu-item" onclick="sendMessageToBot('frustrado')">¿Estás frustrado?</div>
     </div>
   </div>
-    </section>
-    <form class="post-form">
-      <h2>Crear un nuevo tema</h2>
-      <textarea placeholder="Escribe aquí tu mensaje..." rows="5"></textarea>
-      <button type="submit">Publicar</button>
 
-      <p><h1>Habla con ICE bot(desarrollo)</h1></p>
-      <div id="ai-assistant" style="text-align: center; margin: 40px auto; max-width: 600px;">
-        <div id="ai-container" style="position: relative; display: inline-block; width: 200px; height: 200px; margin-bottom: 20px;">
-          <div id="ai-face" 
-               style="width: 100%; height: 100%; border-radius: 50%; background: linear-gradient(45deg, #FFD700, #FF5733); 
-                      display: flex; align-items: center; justify-content: center; font-size: 60px; color: #fff; 
-                      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, background 0.3s ease;">
-            😊
-          </div>
-          <div id="ai-glow" 
-               style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 223, 0, 0.6), transparent); 
-                      filter: blur(20px); pointer-events: none; opacity: 0.7;"></div>
-        </div>
-        <input id="user-input" 
-               type="text" 
-               placeholder="Escribe algo aquí..." 
-               style="padding: 12px; width: 80%; max-width: 400px; border: 2px solid #FFD700; border-radius: 25px; font-size: 16px; text-align: center; outline: none; transition: border-color 0.3s ease;">
-        <button onclick="respondAI()" 
-                style="padding: 12px 20px; margin-top: 15px; font-size: 16px; border: none; border-radius: 25px; background: #FF5733; color: #fff; cursor: pointer; 
-                       transition: background 0.3s ease; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-          Preguntar
-        </button>
-        <p id="ai-response" style="font-size: 18px; color: #333; margin-top: 20px; font-weight: bold;"></p>
-      </div>
-      
-      <script>
-        function respondAI() {
-          const userInput = document.getElementById('user-input').value.toLowerCase();
-          const responseElement = document.getElementById('ai-response');
-          const aiFace = document.getElementById('ai-face');
-          const aiContainer = document.getElementById('ai-container');
-      
-          let response = "";
-          let mood = "😊";
-          let color = "linear-gradient(45deg, #FFD700, #FF5733)";
-      
-          if (userInput.includes("hola")) {
-            response = "¡Hola! ¿Qué tal tu día?";
-            mood = "😄";
-            color = "linear-gradient(45deg, #4CAF50, #8BC34A)";
-          } else if (userInput.includes("cómo estas")) {
-            response = "¡Estoy lleno de energía! ¿Y tú?";
-            mood = "😁";
-            color = "linear-gradient(45deg, #2196F3, #21CBF3)";
-          } else if (userInput.includes("chiste")) {
-            response = "¿Por qué el libro estaba triste? ¡Porque estaba lleno de problemas! 📚😂";
-            mood = "😂";
-            color = "linear-gradient(45deg, #FF5733, #FFC300)";
-          } else if (userInput.includes("adios")) {
-            response = "¡Hasta pronto! Que tengas un día maravilloso. 🌟";
-            mood = "👋";
-            color = "linear-gradient(45deg, #9C27B0, #E040FB)";
-          } else {
-            response = "No entiendo bien eso... pero estoy aquí para aprender. 🤔";
-            mood = "🤔";
-            color = "linear-gradient(45deg, #FF9800, #FFC107)";
-          }
-      
-          
-          aiFace.textContent = mood;
-          aiFace.style.background = color;
-          aiContainer.style.transform = "scale(1.1)";
-          
-          
-          responseElement.textContent = response;
-      
-          
-          setTimeout(() => {
-            aiContainer.style.transform = "scale(1)";
-          }, 300);
-        }
-      </script>
-      
-    </form>
-  </main>
-<footer class="footer">
-    <p>© 2024 Bon Ice Academy. Todos los derechos reservados.</p>
+  <footer>
+    Todos los derechos reservados &copy; <span id="year"></span> para venta de Bon Ice. Desarrollado por El Zurdo.
+    <br>
+    <a href="https://forms.gle/giJP82u2a5FyEdr27" target="_blank">Participa en nuestra encuesta</a>
   </footer>
-  <script src="script.js"></script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function displayMessage(message, sender) {
+      const chatContainer = document.getElementById("chat-container");
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add(sender === "bot" ? "bot-message" : "user-message");
+      messageDiv.textContent = message;
+      chatContainer.appendChild(messageDiv);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function sendMessageToBot(message) {
+      displayMessage(message, "user");
+      setTimeout(() => {
+        const response = getBotResponse(message);
+        displayMessage(response.text, "bot");
+        document.getElementById('emoji').textContent = response.emoji;
+      }, 1000);
+    }
+
+    function getBotResponse(message) {
+      if (message.includes('historia')) return { text: "La inteligencia artificial es el estudio de los agentes inteligentes...", emoji: "🤖" };
+      if (message.includes('ejemplos')) return { text: "Algunos ejemplos de IA incluyen: asistentes virtuales...", emoji: "💡" };
+      if (message.includes('ventajas')) return { text: "Las ventajas de la IA incluyen la automatización de tareas...", emoji: "✨" };
+      if (message.includes('desventajas')) return { text: "Algunas desventajas de la IA son la pérdida de empleos...", emoji: "⚠️" };
+      if (message.includes('como funciona')) return { text: "La IA funciona mediante algoritmos que analizan datos...", emoji: "🔍" };
+      if (message.includes('quien me programo')) return { text: "Fui programado por El zurdo(Juan Piraquive).", emoji: "👨‍💻" };
+      if (message.includes('molesto')) return { text: "no me molestes ishh 🤔", emoji: "🤔" };
+      if (message.includes('medicina')) return { text: "La IA tiene un gran impacto en la medicina, ayudando en diagnósticos...", emoji: "🩺" };
+      if (message.includes('educacion')) return { text: "En educación, la IA está siendo utilizada para personalizar el aprendizaje...", emoji: "📚" };
+      if (message.includes('futuro')) return { text: "El futuro de la IA promete avances increíbles en múltiples áreas...", emoji: "🔮" };
+      if (message.includes('arte')) return { text: "La IA también está comenzando a ser utilizada en la creación de arte...", emoji: "🎨" };
+      if (message.includes('robotica')) return { text: "En robótica, la IA juega un papel fundamental en la autonomía de los robots...", emoji: "🤖" };
+      if (message.includes('redes')) return { text: "La IA es utilizada para mejorar la experiencia en redes sociales...", emoji: "📱" };
+      if (message.includes('saludar')) return { text: "¡Hola! ¿Cómo estás?", emoji: "👋" };
+      if (message.includes('como estas')) return { text: "¡Estoy muy bien! Gracias por preguntar.", emoji: "😊" };
+      if (message.includes('trabajo')) return { text: "Mi trabajo es ayudarte con información sobre IA.", emoji: "💼" };
+      if (message.includes('miedo')) return { text: "No tengo miedo, soy una IA.", emoji: "😌" };
+      if (message.includes('celos')) return { text: "No siento celos, soy una IA programada para ayudarte.", emoji: "😎" };
+      if (message.includes('triste')) return { text: "No estoy triste, ¡estoy aquí para ayudarte!", emoji: "😁" };
+      if (message.includes('frustrado')) return { text: "No siento frustración, pero estoy aquí para ayudarte.", emoji: "😅" };
+      return { text: "Lo siento, no entiendo eso. ¿Puedes preguntar de otra manera?", emoji: "🤔" };
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
+</body>
+</html>
 
 
 
   
-</body>
-</html>
+
